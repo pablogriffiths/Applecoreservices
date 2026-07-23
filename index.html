@@ -309,38 +309,7 @@
 
 </footer>
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-<script src="emailjs.init({
-    publicKey: "zGEOMgoYzl1KMQj0p"
-});
+<script src="script.js"></script>
 
-const form = document.getElementById("contact-form");
-
-form.addEventListener("submit", function (event) {
-
-    event.preventDefault();
-
-    emailjs.sendForm(
-        "service_h8qropq",
-        "template_2isie4w",
-        form
-    )
-
-    .then(function () {
-
-        alert("Thanks! Your enquiry has been sent.");
-
-        form.reset();
-
-    })
-
-    .catch(function (error) {
-
-        console.error(error);
-
-        alert("Sorry, something went wrong. Please try again.");
-
-    });
-
-});"></script>
 </body>
 </html>
