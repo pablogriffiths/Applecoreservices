@@ -140,39 +140,39 @@ Professional Mac repairs, upgrades and diagnostics from an independent specialis
 
         <div class="cards">
 
-            <a href="#contact?service=MacBook Repairs" class="card service-card">
+            <a href="?service=MacBook%20Repairs#contact" class="card service-card">
                 <h3>MacBook Repairs</h3>
                 <p>Battery replacements, keyboards, displays, charging faults and liquid damage.</p>
             </a>
 
-            <a href="#contact?service=iMac Repairs" class="card service-card">
+            <a href="?service=iMac%20Repairs#contact" class="card service-card">
                 <h3>iMac Repairs</h3>
                 <p>Display faults, SSD upgrades, graphics issues and hardware repairs.</p>
             </a>
 
-            <a href="#contact?service=SSD Upgrades" class="card service-card">
+            <a href="?service=SSD%20Upgrades#contact" class="card service-card">
                 <h3>SSD Upgrades</h3>
                 <p>Give older Macs a dramatic performance boost with a modern solid-state drive.</p>
             </a>
 
-            <a href="#contact?service=Diagnostics" class="card service-card">
+            <a href="?service=Diagnostics#contact" class="card service-card">
                 <h3>Diagnostics</h3>
                 <p>Accurate fault finding before recommending any repair.</p>
             </a>
 
-            <a href="#contact?service=Data Recovery" class="card service-card">
+            <a href="?service=Data%20Recovery#contact" class="card service-card">
                 <h3>Data Recovery</h3>
                 <p>Recover important documents, photos and files from damaged Macs.</p>
             </a>
 
-            <a href="#contact?service=Health Checks" class="card service-card">
+            <a href="?service=Health%20Checks#contact" class="card service-card">
                 <h3>Health Checks</h3>
                 <p>Preventative servicing to keep your Mac running reliably.</p>
             </a>
 
-            <a href="#contact?service=Other" class="card service-card">
+            <a href="?service=Other#contact" class="card service-card">
                 <h3>Other</h3>
-                <p>Not sure what's wrong? Ask me to get in touch.</p>
+                <p>Anything else? Just ask me to get in touch.</p>
             </a>
 
         </div>
@@ -325,24 +325,27 @@ rel="noopener noreferrer"
         </h2>
 
         <p>
-            Complete the form below and I'll normally reply within one working
-            day.
+            Complete the form below and I'll normally reply within one working day.
         </p>
 
         <form id="contact-form" class="contact-form">
 
             <div class="form-row">
+
                 <input type="text" name="name" placeholder="Your name" required>
 
-<input type="email" name="email" placeholder="Email address" required>
+                <input type="email" name="email" placeholder="Email address" required>
 
-<input type="text" name="mac_model" placeholder="Mac model (optional)">
+                <input type="text" id="subject" name="subject" placeholder="Subject">
 
-<textarea
-    name="message"
-    rows="6"
-    placeholder="Tell me about the problem..."
-    required></textarea>
+                <input type="text" name="mac_model" placeholder="Mac model (optional)">
+
+                <textarea
+                    name="message"
+                    rows="6"
+                    placeholder="Tell me about the problem..."
+                    required></textarea>
+
             </div>
 
             <button class="btn primary" type="submit">
@@ -352,8 +355,7 @@ rel="noopener noreferrer"
         </form>
 
         <p class="small-print">
-            Your email address is never displayed publicly and is only used to
-            reply to your enquiry.
+            Your email address is never displayed publicly and is only used to reply to your enquiry.
         </p>
 
     </div>
@@ -410,6 +412,29 @@ rel="noopener noreferrer"
 </footer>
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <script src="script.js"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+    const params = new URLSearchParams(window.location.search);
+    const service = params.get("service");
+
+    if (service) {
+
+        const subject = document.getElementById("subject");
+
+        if (subject) {
+            subject.value = service;
+        }
+
+        document.getElementById("contact").scrollIntoView({
+            behavior: "smooth"
+        });
+
+    }
+
+});
+</script>
 
 </body>
 </html>
