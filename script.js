@@ -24,7 +24,7 @@ if (form) {
     const errorText = (error && error.text ? error.text : "").toLowerCase();
 
     if (errorText.includes("recaptcha") || errorText.includes("captcha")) {
-        alert('Don\'t forget to let me know you\'re not a robot by ticking "I\'m not a robot"!');
+        alert('Don\'t forget to let me know you\'re not a robot by ticking "I\'m not a robot", please');
     } else {
         alert("Sorry, something went wrong sending your enquiry. Please try again.");
     }
