@@ -777,3 +777,6 @@ footer{
 .service-card:hover h3{
     color:var(--orange);
 }
+.g-recaptcha {
+    margin-bottom: 12px;
+}
