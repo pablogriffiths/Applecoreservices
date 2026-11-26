@@ -18,10 +18,17 @@ if (form) {
             alert("Thanks! Your enquiry has been sent.");
             form.reset();
         })
-        .catch(function (error) {
-            console.error("EmailJS error:", error);
-            alert("Sorry, something went wrong. Please try again.");
-        });
+.catch(function (error) {
+    console.error("EmailJS error:", error);
+
+    const errorText = (error && error.text ? error.text : "").toLowerCase();
+
+    if (errorText.includes("recaptcha") || errorText.includes("captcha")) {
+        alert('Don\'t forget to let me know you\'re not a robot by ticking "I\'m not a robot"!');
+    } else {
+        alert("Sorry, something went wrong sending your enquiry. Please try again.");
+    }
+});
 
     });
 }
